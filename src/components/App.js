@@ -11,7 +11,7 @@ class App extends Component {
         <Header />
         <h1>Rendering Elements</h1>
         <List />
-        <Footer />
+        <Footer name="Makanan Nusantara"  tahun="2018"/>
       </div>
     );
   }

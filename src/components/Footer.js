@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Footer = () => {
-  var name = "MARTINO";
+const Footer = props => {
+  // var name = "MARTINO";
   return (
     <div>
-      <h4>Ini Halaman Footer {name}</h4>
-      <p>@2018</p>
+      <h4>Ini Halaman Footer {props.name}</h4>
+      <p>@{props.tahun}</p>
     </div>
   );
 }
