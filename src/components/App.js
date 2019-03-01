@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Header from "./Header";
+import Top from "./Top";
 import Footer from "./Footer";
 import List from "./List";
 
@@ -7,7 +8,8 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Header />
+        <Header List="3 terbaik" />
+        <Top />
         <h1>Rendering Elements</h1>
         <List />
         <Footer name="Makanan Nusantara"  tahun="2018"/>
