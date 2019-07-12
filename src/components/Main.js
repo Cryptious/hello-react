@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import menuMakanan from "./Lib/Food";
 
 class Main extends Component{
   constructor(props){
@@ -8,7 +8,27 @@ class Main extends Component{
         title : "Menu Makanan",
         title2: "Menu Minuman",
         inputValue: "",
-        inputKota: ""
+        inputKota: "",
+        // list state
+        // menuMakanan:
+        // [
+        //   {
+        //     nama: "Mie Ayam",
+        //     harga: 10000
+        //   },
+        //   {
+        //     nama: "Bakso",
+        //     harga: 15000
+        //   },
+        //   {
+        //     nama: "Mie Ayam Bakso",
+        //     harga: 20000
+        //   },
+        //   {
+        //     nama: "Soto",
+        //     harga: 12000
+        //   }
+        // ]
       };
       this.rubahData = this.rubahData.bind(this);
       this.handleChange = this.handleChange.bind(this);
@@ -57,6 +77,16 @@ class Main extends Component{
 
         <input type="text" value={this.state.inputValue} onChange={ e => this.handleChange("inputValue",e)} placeholder="Name" />
         <input type="text" value={this.state.inputKota} onChange={ e => this.handleChange("inputKota",e)} placeholder="Kota" />
+
+        {menuMakanan.map((value, index)=>{ // jika dari state 'props' ganti dengan state'
+          return (
+            <div key={index}>
+              <p>No: {index + 1}</p>
+              <p>Nama Makanan: {value.nama}</p>
+              <p>Harga: {value.harga}</p>
+            </div>
+          );
+        })}
       </div>
     );
   }
