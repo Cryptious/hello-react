@@ -7,7 +7,8 @@ class Main extends Component{
       this.state = {
         title : "Menu Makanan",
         title2: "Menu Minuman",
-        inputValue: "Nasi Padang Uhuy"
+        inputValue: "",
+        inputKota: ""
       };
       this.rubahData = this.rubahData.bind(this);
       this.handleChange = this.handleChange.bind(this);
@@ -30,7 +31,17 @@ class Main extends Component{
   }; //disarankan menggunakan state arrow function
   // End Cara penulisan State
 
-  handleChange(e){
+  handleChange(value, e){
+    this.setState({ [value] : e.target.value}); //jika inputan onchange hanya sedikit
+
+    // Jika event on change banyak
+    // const eventTarget = e.target.value;
+    // this.setState((state, props) =>{
+    //   return{
+    //     inputValue : eventTarget
+    //   };
+    // })
+
     console.log(e.target.value);
   }
 
@@ -44,7 +55,8 @@ class Main extends Component{
         <br />
         <br />
 
-        <input type="text" value={this.state.inputValue} onChange={this.handleChange} />
+        <input type="text" value={this.state.inputValue} onChange={ e => this.handleChange("inputValue",e)} placeholder="Name" />
+        <input type="text" value={this.state.inputKota} onChange={ e => this.handleChange("inputKota",e)} placeholder="Kota" />
       </div>
     );
   }
