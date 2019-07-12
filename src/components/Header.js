@@ -10,6 +10,7 @@ class Header extends Component{
       date : new Date()
     };
     this.handlePesan = this.handlePesan.bind(this); //agar alert pada evenet class Handlepesan bisa menggunakan pemanggilan state
+    this.handleElement = this.handleElement.bind(this);
   }
 
   handlePesan(value,e){
@@ -22,15 +23,35 @@ class Header extends Component{
     console.log("Jalan : componentDidMount");
   }
 
+  handleElement(){
+    this.setState((state, props) =>{
+      return{statusRendering: !state.statusRendering};
+    })
+  }
+
   render(){
     console.log("Jalan : Render");
+    console.log(this.state.statusRendering);
 
     return(
       <div>
-        {
-          // {this.state.statusRendering === true ? (<h1>Selamat Datang </h1>):(<h1>Selamat Tinggal </h1>)} atau
-        }
-        {this.state.statusRendering ? (<h1>Selamat Datang </h1>):(<h1>Selamat Tinggal </h1>)}
+      {
+        // {this.state.statusRendering === true ? (<h1>Selamat Datang </h1>):(<h1>Selamat Tinggal </h1>)} atau
+      }
+      {this.state.statusRendering ? (
+        <div>
+          <h1>Selamat Datang </h1>
+          <h2>Silahkan Pilih Makanan </h2>
+        </div>
+
+      ):(
+        <div>
+        <h1>Selamat Tinggal </h1>
+        <h2>Silahkan datnag kembali </h2>
+        </div>
+
+      )}
+      <button onClick={this.handleElement}>Change</button>
       </div>
     )
 
