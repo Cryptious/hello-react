@@ -1,4 +1,11 @@
 import React, { Component } from 'react';
+import "./header.css";
+
+const judul = {
+  color : "orange",
+  backgroundColor : "blue",
+  marginTop : "50px"
+}
 
 class Header extends Component{
   constructor(props){
@@ -40,14 +47,14 @@ class Header extends Component{
       }
       {this.state.statusRendering ? (
         <div>
-          <h1>Selamat Datang </h1>
-          <h2>Silahkan Pilih Makanan </h2>
+          <h1 style={{color : "red", marginTop:"50px" }}>Selamat Datang </h1>
+          <h2 style={judul}>Silahkan Pilih Makanan </h2>
         </div>
 
       ):(
         <div>
-        <h1>Selamat Tinggal </h1>
-        <h2>Silahkan datnag kembali </h2>
+        <h1 id="judulKedua">Selamat Tinggal </h1>
+        <h2 className="judulInfo">Silahkan datnag kembali </h2>
         </div>
 
       )}
